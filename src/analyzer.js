@@ -1,21 +1,75 @@
 const analyzer = {  
   getWordCount: (text) => {
-    //TODO: esta función debe retornar el recuento de palabras que se encuentran en el parámetro `text` de tipo `string`.
+    
+    const wordsArray = text.split(/\s+/);
+    // const wordsArray = text.split(/\s+/);
+    console.log(wordsArray);
+    return wordsArray.length;
+  
   },
+
   getCharacterCount: (text) => {
-    //TODO: esta función debe retornar el recuento de caracteres que se encuentran en el parámetro `text` de tipo `string`.
+    let count = 0;
+
+    for (let char of text) {
+      count++;
+    }
+
+    return count;
   },
+
   getCharacterCountExcludingSpaces: (text) => {
-    //TODO: esta función debe retornar el recuento de caracteres excluyendo espacios y signos de puntuación que se encuentran en el parámetro `text` de tipo `string`.
+    let count = 0;
+
+    for (let char of text) {
+      if (!char.match(/\s/)) {
+        // Si no es un espacio, incrementa el contador
+        count++;
+      }
+    }
+
+    return count;
   },
-  getAverageWordLength: (text) => {    
-    //TODO: esta función debe retornar la longitud media de palabras que se encuentran en el parámetro `text` de tipo `string`.
-  },
+
   getNumberCount: (text) => {
-    //TODO: esta función debe retornar cúantos números se encuentran en el parámetro `text` de tipo `string`.
+    // Implementa la lógica para contar números
+    const numbersArray = text.match(/\d+/g);
+    return numbersArray ? numbersArray.length : 0;
   },
+
   getNumberSum: (text) => {
-    //TODO: esta función debe retornar la suma de todos los números que se encuentran en el parámetro `text` de tipo `string`.
+    let sum = 0;
+
+    for (let char of text) {
+      if (char.match(/\d/)) {
+        // Si es un número, suma al total
+        sum += parseInt(char);
+      }
+    }
+
+    return sum;
+  },
+
+  getAverageWordLength: (text) => {
+    let totalWords = 0;
+    let totalLength = 0;
+    let inWord = false;
+
+    for (let char of text) {
+      if (char.match(/\s/)) {
+        // Si es un espacio, indica que estamos fuera de una palabra
+        inWord = false;
+      } else {
+        // Si no es un espacio y no estamos en una palabra, incrementa los contadores
+        if (!inWord) {
+          totalWords++;
+          inWord = true;
+        }
+        totalLength++;
+      }
+    }
+
+    return totalWords > 0 ? (totalLength / totalWords).toFixed(2) : 0;
   },
 };
 

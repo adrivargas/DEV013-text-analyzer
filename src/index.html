@@ -3,25 +3,35 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Analizador de texto</title>
+  <title>Analizador de Texto</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <script src="index.js" type="module"></script>
-  <h1>
-    Bienvenida a tu Analizador de Texto
-  </h1>
-  <textarea>
-    name = "texto";
-  </textarea>
+  <h1><span>Bienvenida a tu Analizador de Texto</span></h1>
+ 
+  <textarea name = "texto" placeholder="Escriba su texto"></textarea>
+  <div>
+      <!-- <input id = "reset_button" type = "reset" value ="Resetear Texto"> -->
+      <button  id = "reset-button" onclick = "reset()" >Resetear texto</button> 
+    <!-- <button id="reset-button">Resetear texto</button> -->
+  </div>
+
+  <div></div>
   <ul>
-    <li><data-testid value word-count = "">Recuentro_Palabras</data-testid></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+    <li class="count" data-testid="word-count">Recuento de palabras:</li>
+    <li class="count" data-testid="character-count">Recuento de Caracteres:</li>
+    <li class="count" data-testid="character-no-spaces-count">Caracteres excluyendo espacios:</li>
+    <li class="count" data-testid="number-count">Recuento de Numeros:</li>
+    <li class="count" data-testid="number-sum">Suma total de numeros:</li>
+    <li class="count" data-testid="word-length-average">Longitud media de palabras:</li>
   </ul>
+  
+  
+  
+  <footer>
+    <p>Desarrollado por Adriana Vargas</p>
+  </footer>
 </body>
 </html>

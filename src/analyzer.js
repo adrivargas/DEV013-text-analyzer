@@ -22,7 +22,7 @@ const analyzer = {
     let count = 0;
 
     for (let char of text) {
-      if (!char.match(/\s/)) {
+      if (!char.match(/[ \.,;:'"!?()\[\]{}]/)) {
         // Si no es un espacio, incrementa el contador
         count++;
       }
